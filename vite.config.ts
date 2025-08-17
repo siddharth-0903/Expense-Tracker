@@ -19,5 +19,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/expense-tracker/",
+  base: "/Expense-Tracker/",
 }));
