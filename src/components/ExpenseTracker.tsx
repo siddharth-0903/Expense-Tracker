@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { Trash2, Plus, TrendingUp, TrendingDown, DollarSign } from 'lucide-react';
+import { Trash2, Plus, TrendingUp, TrendingDown, IndianRupee } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Transaction, TRANSACTION_CATEGORIES } from '@/types/transaction';
@@ -96,7 +96,7 @@ export default function ExpenseTracker() {
 
     toast({
       title: "Transaction Added",
-      description: `${formData.type === 'income' ? 'Income' : 'Expense'} of $${amount.toFixed(2)} added successfully.`,
+      description: `${formData.type === 'income' ? 'Income' : 'Expense'} of ₹${amount.toFixed(2)} added successfully.`,
     });
   };
 
@@ -109,9 +109,9 @@ export default function ExpenseTracker() {
   };
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'USD'
+      currency: 'INR'
     }).format(amount);
   };
 
@@ -157,7 +157,7 @@ export default function ExpenseTracker() {
           <Card className="shadow-card">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Net Income</CardTitle>
-              <DollarSign className="h-4 w-4 text-primary" />
+              <IndianRupee className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className={`text-2xl font-bold ${
